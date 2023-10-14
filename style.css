@@ -98,7 +98,7 @@ h6,
 
 #header .logo h1 a,
 #header .logo h1 a:hover {
-  color: #7a6960;
+  color: #000000;
   text-decoration: none;
 }
 
@@ -140,7 +140,7 @@ h6,
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-size: 15px;
+  font-size: 20px;
   color: #4e4039;
   white-space: nowrap;
   transition: 0.3s;
@@ -480,7 +480,7 @@ section {
   padding-bottom: 15px;
   margin-bottom: 15px;
   position: relative;
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 700;
   color: #4e4039;
 }
@@ -551,6 +551,7 @@ section {
   font-weight: 700;
   font-size: 34px;
   color: #4e4039;
+  text-align: center;
 }
 
 .about h4 {
@@ -567,8 +568,9 @@ section {
 }
 
 .about p {
-  font-size: 15px;
+  font-size: 20px;
   color: #5a6570;
+  text-align: justify;
 }
 
 @media (max-width: 991px) {
@@ -767,6 +769,14 @@ section {
 --------------------------------------------------------------*/
 .portfolio-details {
   padding-top: 40px;
+}
+
+/* portfolio subheadings for each section of project */
+.col-lg-12 {
+  flex: 0 0 auto;
+  width: 100%;
+  text-align: center;
+
 }
 
 .portfolio-details .portfolio-details-slider img {
