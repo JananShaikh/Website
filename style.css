@@ -921,10 +921,11 @@ section {
 
 .team .member .member-info-content {
   position: absolute;
-  left: 50px;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 0;
   transition: bottom 0.4s;
+  text-align: center;
 }
 
 .team .member .member-info-content h4 {
@@ -940,6 +941,7 @@ section {
   font-size: 13px;
   color: #fff;
 }
+
 
 .team .member .social {
   position: absolute;
