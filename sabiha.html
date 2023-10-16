@@ -86,7 +86,7 @@
             <div class="abstract-description">
               <h2>Abstract</h2>
               <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                South Africa is a linguistically diverse country with 11 official languages. Nine of the languages are termed low-resource languages due to there being not enough electronic documents available for them. The exceptions are English and Afrikaans. Natural language processing techniques require electronic documents to extract content for processing to enable computers to understand, interpret and generate spoken languages. The goal of this paper is to assess the feasibility of using crowdsourcing to construct a gold- standard ASR corpus for isiXhosa. It involved collecting audio data, transcribing it with isiXhosa speakers, and applying several statistical methods to evaluate the transcriptions' quality and consistency. The corpus, while not without limitations due to small sample sizes and potential variations, represents a significant step towards addressing the scarcity of electronic linguistic resources in low-resource African languages.
               </p>
             </div>
           </div>
@@ -104,11 +104,47 @@
             <div class="methodology-description">
               <h2>Methodology</h2>
               <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                This section outlines the methodology for creating a gold-standard ASR corpus for low-resource languages, specifically isiXhosa. The process includes participant recruitment, audio data collection, audio transcription, and statistical analysis tools.
+      	      </p>
+      	      
+              <h4>Participant Recruitment</h4>
+              <p>
+                The study recruited isiXhosa-speaking students from the University of Cape Town, ensuring ethical clearance. Diverse participants were reached through emails and posters. They had to be fluent in isiXhosa and were compensated for tasks.
               </p>
+              
+              <h4>Audio Data Collection</h4>
+              <p>
+                Two sets of audio segments were gathered: structured audio from South African Broadcasting Cooperation news segments and unstructured audio from recruited participants. The unstructured audio included casual conversations with noise factors. The structured audio included formal speach without any noise factors.
+              </p>
+              
+              <h4>Audio Transcription</h4>
+              <p>
+                The audio segments were transcribed using the Turkle web application hosted on Amazon Web Service. A pilot test ensured the application's functionality and usability. 
+              </p>
+              
+              <div class="image-container" style="display: flex; justify-content: center;">
+                <div class="image">
+                  <figure>
+  		     <img src="img/sabiha/turkle.png" alt="Dataset statistics for the 2 sub-corpora" width="100%" height="auto">
+  		     <figcaption>Figure 1: Turkle web applicationin transcription interface</figcaption>
+                  </figure>
+                </div>  
+              </div>
+              
+              <h4>Statistical Analysis</h4>
+              <p>
+              Data preprocessing involved removing translations, splitting text into words, converting to lowercase, and excluding English words. The following statistical techniques were conducted on the results:
+                <ul>
+                <li><strong>Inter-Transcriber Similarity:</strong> The Levenshtein distance was used to measure agreement between transcriptions.</li>
+                <li><strong>Zipf's Law:</strong> Zipf's Law was applied to evaluate word frequency distributions in the corpus.</li>
+                <li><strong>Token-Type Ratio:</strong> The Token-Type Ratio (TTR) was used to assess the lexical richness and diversity of the corpus.</li>
+                </ul>
+              </p>
+       
             </div>
           </div>
-
+         
+  
         </div>
 
       </div>
@@ -122,9 +158,39 @@
             <div class="results-description">
               <h2>Results</h2>
               <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                Two sub-corpora were developed for two audio sets—structured and unstructured. Statistical analysis on both corpora revealed:
+                  <ul>
+	            <li>An above-average <strong>inter-transcriber similarity</strong> score of approximately 60%.</li>
+		    <li>A <strong>token-to-type ratio</strong> of approximately 2.5.</li>
+		    <li>Adherence to <strong>Zipf's law</strong> as seen in natural languages.</li>
+		  </ul>   
               </p>
+            
+            
+            <div class="image-container" style="display: flex; justify-content: space-between;">  
+              <div class="image">
+              <figure>
+  		 <img src="img/sabiha/zip1.png" alt="zipf's law for structured audio" width="70%" height="auto">
+  		 <figcaption>Figure 2: Zipf's Law Distribution:for Structured Audio</figcaption>
+              </figure>
+              </div>
+              
+              <div class="image">
+              <figure>
+  		 <img src="img/sabiha/zip2.png" alt="zipf's law for unstructured audio" width="70%" height="auto">
+  		 <figcaption>Figure 3: Zipf's Law Distributionfor Untructured Audio</figcaption>
+              </figure>
+              </div>
+              
             </div>
+          </div>
+          
+          <div class="image-container" style="display: flex; justify-content: center;">
+              <div class="image">
+              <figure>
+  		 <img src="img/sabiha/stats.png" alt="Dataset statistics for the 2 sub-corpora" width="70%" height="auto">
+              </figure>
+              </div>  
           </div>
 
         </div>
@@ -139,13 +205,9 @@
 
     <div class="footer-newsletter">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-6">
             <h4>Conclusions</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <p>This study used crowdsourcing to create a gold-standard ASR corpus for isiXhosa, a low-resource African language in South Africa. The corpus had 26,794 structured and 12,764 unstructured audio segments. The findings highlighted the corpus's strengths and limitations, including varying transcription agreement, adherence to Zipf's Law, and a balanced vocabulary diversity. Despite some challenges, this research demonstrates the potential of crowdsourcing for building linguistic resources in low-resource African languages. It contributes to linguistic research, offering insights into language patterns and richness in isiXhosa, and provides a foundation for future collaborations to address linguistic resource shortages in African languages.</p>
             
-          </div>
-        </div>
       </div>
     </div>
 
