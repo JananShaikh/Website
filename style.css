@@ -357,6 +357,7 @@ h6,
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
+
 section {
   padding: 60px 0;
   overflow: hidden;
@@ -408,6 +409,7 @@ section {
   padding-inline: 220px; 
   text-align: justify;
   padding-bottom: 0%;
+  /* background-color: #fef5f1; */
 }
 #abstract h2 {
   text-align: center;
@@ -418,6 +420,7 @@ section {
   padding-inline: 220px; 
   text-align: justify;
   padding-bottom: 0%;
+  /* background-color: #fef8f5; */
 
 }
 #methodology h2 {
@@ -430,12 +433,14 @@ section {
 }
 #methodology figcaption {
   text-align: center;
+  /* background-color: #fef8f5; */
 }
 /* Style for the #results section */
 #results {
   padding-inline: 220px; 
   text-align: justify;
   padding-bottom: 0%;
+  /* background-color: #fef5f1; */
 
 }
 #results h2 {
@@ -446,6 +451,7 @@ section {
 #conclusions {
   padding-inline: 220px; 
   text-align: justify;
+  /* background-color: #fef8f5; */
 
 }
 #conclusions h2 {
@@ -931,6 +937,9 @@ section {
   color: #212529;
   font-size: 14px;
   background: #fef8f5;
+  /* border-style: solid;
+  border-width: 1px;
+  border-color: #f39e7a; */
 }
 .footer {
   padding: 25px 20px;

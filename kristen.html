@@ -51,7 +51,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto" href="#abstract">Abstract</a></li>
-          <li><a class="nav-link scrollto" href="#methodology">Methodology</a></li>
+          <li><a class="nav-link scrollto" href="#methodology">Methods</a></li>
           <li><a class="nav-link scrollto" href="#results">Results</a></li>
           <li><a class="nav-link scrollto" href="#footer">Conclusions</a></li>
         </ul>
@@ -84,8 +84,28 @@
         <div class="abstract-description">
           <h2>Abstract</h2>
           <p>
-            Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-          </p>
+            The lack of electronic linguistic resources in the southern Nguni
+            languages, such as isiXhosa, negatively impacts computational and
+            statistical systems that rely on these resources. Transcribing these
+            languages would facilitate text-based research experiments and
+            support multiple areas of natural language processing (NLP). This
+            paper describes the methods used to create an isiXhosa automatic
+            speech recognition (ASR) transcription system using the
+            CMUSphinx speech recognition toolkit for South African
+            Broadcasting Corporation (SABC) news. The accuracy of this
+            system is evaluated by using metrics such as word error rate
+            (WER), and the Levenshtein distance at the character and word
+            level. Multiple experiments were conducted using a gold standard
+            test corpus of approximately 40 minutes of SABC news and 3 hours
+            of test audio provided by the South African Centre for Digital
+            Language Resources (SADiLaR) website. The experiments done
+            on the SABC news audio showed that the Levenshtein distances for
+            the news anchor in the field were more accurate than the main news
+            anchor and the distances for male speakers were more accurate than
+            for females. Although Pocketsphinx performed better than Sphinx4
+            overall, both systems performed poorly on the SABC news audio,
+            each with a WER of 100%. In comparison, the SADiLaR test audio
+            had a WER of 39% for Pocketsphinx and 65% for Sphinx4.</p>
         </div>
       </div>
     </section><!-- End Abstract Section -->
@@ -96,7 +116,7 @@
 
     
             <div class="methodology-description">
-              <h2>Methodology</h2>
+              <h2>Methods</h2>
               <p>
                 Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
               </p>
@@ -125,7 +145,20 @@
         <div class="container">
           <div class="conclusions-description">
               <h2>Conclusions</h2>
-              <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+              <p>Although the experimental results showed that Pocketsphinx’s
+                WER for the NCHLT test data was 39% in comparison to Sphinx4
+                with 65%, both systems performed poorly on the SABC news,
+                unseen data, with a WER of 100%. Furthermore, when comparing
+                male and female speakers it was seen that both systems performed
+                better on male speech than female. Moreover, the field news had
+                the best results amongst the different types of speech, with a better
+                result than the main news anchor sections. The standard deviation
+                for all the results showed a large variability between the data
+                indicating that the data was widely spread out and not clustered
+                close to the mean. Overall, the results show that CMUSphinx
+                (Pocketsphinx and Sphinx4) does not perform accurately for
+                isiXhosa SABC news.
+              </p>
         </div>
       </div>
       </section>
