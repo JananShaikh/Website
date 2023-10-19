@@ -136,7 +136,18 @@
                 The system development and implementation involved the use of two speech recognition libraries, Pocketsphinx and Sphinx4. These were used for developing audio transcription systems, with Pocketsphinx implemented in Python and Sphinx4 in Java. The systems aimed to transcribe segmented audio files accurately.
               </p>
               <h4>5. Evaluation Metrics</h4>
-              <p></p>
+              <p>Word Error Rate (WER) and Levenshtein distance (LD) were used to evaluate the accuracy of the transcriptions.
+              </p>
+              <h5>Word Error Rate</h5>
+              <p><br>\[ \text{WER} = \frac{\text{substitutions} + \text{deletions} + \text{insertions}}{\text{total number of words}} \] </p>
+               <h5>Levenshtein Distance</h5> 
+               <p>\[ \text{LD} = \text{substitutions} + \text{deletions} + \text{insertions} \]</p>
+
+               <h4>Experimental Setup</h4>
+               <ul>
+                <li>Experiments involved transcribing and evaluating test data and SABC news data.</li>
+                <li>Comparisons were made between Pocketsphinx and Sphinx4, male and female and speech types.</li>
+              </ul>
             </div>
           </div>
 
@@ -151,8 +162,31 @@
             <div class="results-description">
               <h2>Results</h2>
               <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                The results indicate that Pocketsphinx outperforms Sphinx4 on familiar data, but both perform equally on unfamiliar data. This might be due to the lack of maintenance for Sphinx4 by CMUSphinx. Overall, CMUSphinx performed poorly in transcribing isiXhosa SABC broadcast news, possibly due to small training datasets, short audio segments, and differences in speaker speed between training and test data. Not handling out-of-vocabulary (OOV) words could also affect the system's performance. Male speech segments performed better than female segments, likely due to pitch differences. Interestingly, field news speech sections performed better than main news anchor sections, possibly due to slower and clearer speech. Improving isiXhosa SABC news transcription would require a substantial amount of related training data, and exploring other toolkits and deep neural networks may be beneficial.
               </p>
+              <div class="image-container" style="display: flex; justify-content: space-between;">  
+                <div class="image">
+                <figure>
+         <img src="img/kristen/Female&Male_word.png" alt="" class="figure-image">
+         <figcaption><strong> Figure 1: Levenshtein word distance for male and female speakers</strong></figcaption>
+                </figure>
+                </div>
+
+                <div class="image">
+                  <figure>
+           <img src="img/kristen/Types_word.png" alt="" class="figure-image">
+           <figcaption><strong> Figure 2: Levenshtein word distance for different types of speech</strong> </figcaption>
+                  </figure>
+                  </div>
+
+            </div>
+            <div class="image-container" style="display: flex; justify-content: space-between;">
+            <div class="image">
+              <figure>
+       <img src="img/kristen/PSvsS4.png" alt="" width="70%" height="auto" style="border: 2px solid black;">
+       <figcaption ><strong> Figure 3: Word Error Rate for Sphinx4 and Pocketsphinx</strong></figcaption>
+              </figure>
+              </div>
             </div>
 
       </div>
@@ -214,6 +248,10 @@
 
   <!-- Template Main JS File -->
   <script src="main.js"></script>
+
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
 
 </body>
 
