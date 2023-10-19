@@ -430,7 +430,15 @@ section {
 #methodology h4 {
   text-decoration: underline;
   padding-top: 20px;
+  
 }
+
+#methodology h5 {
+  padding-top: 20px;
+  color: #eb5d1e;
+  
+}
+
 #methodology figcaption {
   text-align: center;
   /* background-color: #fef8f5; */
@@ -446,6 +454,13 @@ section {
 #results h2 {
   text-align: center;
 }
+
+#results h4 {
+  text-decoration: underline;
+  padding-top: 20px;
+  
+}
+
 #results .image-container {
   display: flex;
   flex-direction: row; 
