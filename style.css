@@ -357,6 +357,7 @@ h6,
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
+
 section {
   padding: 60px 0;
   overflow: hidden;
@@ -377,7 +378,7 @@ section {
   padding-bottom: 0;
   line-height: 1px;
   margin-bottom: 15px;
-  color: #c2b7b1;
+  color:#4e4039 ;
 }
 
 .section-title p {
@@ -386,7 +387,7 @@ section {
   position: relative;
   font-size: 20px;
   font-weight: 700;
-  color: #4e4039;
+  color: #a89d97;
 }
 
 .section-title p::after {
@@ -408,6 +409,7 @@ section {
   padding-inline: 220px; 
   text-align: justify;
   padding-bottom: 0%;
+  /* background-color: #fef5f1; */
 }
 #abstract h2 {
   text-align: center;
@@ -418,6 +420,7 @@ section {
   padding-inline: 220px; 
   text-align: justify;
   padding-bottom: 0%;
+  /* background-color: #fef8f5; */
 
 }
 #methodology h2 {
@@ -438,12 +441,14 @@ section {
 
 #methodology figcaption {
   text-align: center;
+  /* background-color: #fef8f5; */
 }
 /* Style for the #results section */
 #results {
   padding-inline: 220px; 
   text-align: justify;
   padding-bottom: 0%;
+  /* background-color: #fef5f1; */
 
 }
 #results h2 {
@@ -456,11 +461,29 @@ section {
   
 }
 
+#results .image-container {
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  gap: 20px; /* Adjust the gap as needed */
+}
+#results figcaption {
+  text-align: center;
+  /* background-color: #fef8f5; */
+}
+
+#results .figure-image {
+  max-width: 100%;  /* Images will take up the full width of the figure container */
+  height: auto; /* Maintain the aspect ratio */
+  border: 2px solid black;
+  display: block; /* Ensure images don't have any extra spacing issues */
+}
 
 /* Style for the #conclusions section */
 #conclusions {
   padding-inline: 220px; 
   text-align: justify;
+  /* background-color: #fef8f5; */
 
 }
 #conclusions h2 {
@@ -570,6 +593,7 @@ section {
   border-radius: 15px;
   text-align: center;
   border-bottom: 3px solid #fff;
+  height: 300px;
 }
 
 .services .icon-box:hover {
@@ -946,6 +970,9 @@ section {
   color: #212529;
   font-size: 14px;
   background: #fef8f5;
+  /* border-style: solid;
+  border-width: 1px;
+  border-color: #f39e7a; */
 }
 .footer {
   padding: 25px 20px;
@@ -1146,17 +1173,3 @@ section {
   text-decoration: none;
   color: #0056b3;
 }
-
-/* .methodology .container {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.methodology-description, 
-.section-content, 
-.sub-section {
-  width: 80%;
-  margin: 0 auto;
-} */
