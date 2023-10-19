@@ -427,7 +427,15 @@ section {
 #methodology h4 {
   text-decoration: underline;
   padding-top: 20px;
+  
 }
+
+#methodology h5 {
+  padding-top: 20px;
+  color: #eb5d1e;
+  
+}
+
 #methodology figcaption {
   text-align: center;
 }
@@ -441,6 +449,13 @@ section {
 #results h2 {
   text-align: center;
 }
+
+#results h4 {
+  text-decoration: underline;
+  padding-top: 20px;
+  
+}
+
 
 /* Style for the #conclusions section */
 #conclusions {
@@ -1131,3 +1146,17 @@ section {
   text-decoration: none;
   color: #0056b3;
 }
+
+/* .methodology .container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.methodology-description, 
+.section-content, 
+.sub-section {
+  width: 80%;
+  margin: 0 auto;
+} */
