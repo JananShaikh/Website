@@ -561,6 +561,7 @@ section {
   border-radius: 15px;
   text-align: center;
   border-bottom: 3px solid #fff;
+  height: 300px;
 }
 
 .services .icon-box:hover {
