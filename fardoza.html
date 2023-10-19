@@ -87,7 +87,7 @@
               <h2>Abstract</h2>
               <p>
                 The scarcity of electronic resources for many South African languages, such as isiXhosa, poses a barrier to text-based research 
-                and experimentation. To overcome this barrier, this paper investigates the feasibility of using mobile devices to automatically 
+                and experimentation. To overcome this barrier, this project investigates the feasibility of using mobile devices to automatically 
                 transcribe unstructured audio to generate a high-quality textual corpus using the PocketSphinx speech recognition toolkit across 
                 various dimensions such as background noise and conversational difficulties. The results reveal notable limitations, including high 
                 Word Error Rates (WER) and difficulties in capturing casual speech. Hardware differences and the rate of speech also influence 
@@ -125,7 +125,7 @@
               <h5>2.1 Building a language model</h5>
               <p>Using the CMUCLMTK toolkit from CMUSphinx, an isiXhosa language model was developed based on the 56-hour NCHLT isiXhosa Speech Corpus and supplemented with the Lwazi isiXhosa TTS corpora from SADiLaR. After assembling a complete reference text, a unique vocabulary file was made, leading to the final ARPA format language model.</p>
               <h5>2.2 Phonetic dictionary and G2P model training</h5>
-              <p>The isiXhosa phonetic dictionary file was obtained from the NCHLT-inlang pronunciation dictionaries from SADiLaR, which are broad phonemic transcriptions for 15,000 common words in 11 different languages. The phonetic dictionary contains the phonetic representation of all the words contained in the transcription files as exemplified by a snippet in Figure 4, allowing the decoder to understand how to pronounce each word.</p>
+              <p>The isiXhosa phonetic dictionary file was obtained from the NCHLT-inlang pronunciation dictionaries from SADiLaR, which are broad phonemic transcriptions for 15,000 common words in 11 different languages. The phonetic dictionary contains the phonetic representation of all the words contained in the transcription files, allowing the decoder to understand how to pronounce each word.</p>
               <p>The NCHLT-inlang isiXhosa dictionary was incomplete, lacking some words from the transcription file. To address this, Sequitur G2P was employed to train a grapheme-to-phoneme model, which generated phonetic representations for missing words using existing dictionary entries. After three training iterations, the final model filled in the dictionary gaps.</p>
               <h5>2.3 Training database structure</h5>
               <p>In the process of training an acoustic model, a training database is 
@@ -138,11 +138,46 @@
                 structure:
                 </p>
 
-          
-
+                <div style="font-family: 'Arial', sans-serif; max-width: 600px; margin: 20px auto; border: 1px solid #ccc; padding: 20px; border-radius: 10px; background-color: #FFF3E0; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                  <ul style="list-style-type: none; padding: 0;">
+                      <li style="padding: 5px 0;">
+                          ├─ <strong>etc</strong>
+                          <ul style="list-style-type: none; padding-left: 20px;">
+                              <li>├─ your_db.dic (Phonetic dictionary)</li>
+                              <li>├─ your_db.phone (Phoneset file)</li>
+                              <li>├─ your_db.lm.DMP (Language model)</li>
+                              <li>├─ your_db.filler (List of fillers)</li>
+                              <li>├─ your_db_train.fileids (List of files for training)</li>
+                              <li>├─ your_db_train.transcription (Transcription for training)</li>
+                              <li>├─ your_db_test.fileids (List of files for testing)</li>
+                              <li>└─ your_db_test.transcription (Transcription for testing)</li>
+                          </ul>
+                      </li>
+                      <li style="padding: 5px 0;">
+                          └─ <strong>wav</strong>
+                          <ul style="list-style-type: none; padding-left: 20px;">
+                              <li>
+                                  ├─ <strong>speaker_1</strong>
+                                  <ul style="list-style-type: none; padding-left: 20px;">
+                                      <li>└─ file_1.wav (Recording of speech utterance)</li>
+                                  </ul>
+                              </li>
+                              <li>
+                                  └─ <strong>speaker_2</strong>
+                                  <ul style="list-style-type: none; padding-left: 20px;">
+                                      <li>└─ file_2.wav</li>
+                                  </ul>
+                              </li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+              
           <h4>3. Acoustic model training</h4>
-          <p>Acoustic model training occurred in two phases. Initially, it solely used the NCHLT isiXhosa Speech Corpus, resulting in a limited word recognition. The second phase integrated data from Lwazi isiXhosa TTS corpora, improving the model. During training, alignment errors between audio and transcription arose, requiring forced alignment and prompt filtering. The initial model had a WER of 30.1% and an SER of 33.2%. The second phase marginally improved the WER, but the SER remained consistent.</p>
+          <p>Acoustic model training occurred in two phases. Initially, it solely used the NCHLT isiXhosa Speech Corpus, resulting in a limited word recognition. The second phase integrated data from Lwazi isiXhosa TTS corpora, improving the model. During training, alignment errors between audio and transcription arose, requiring forced alignment and prompt filtering. The initial model had a WER of 30.1% and an SER of 33.2% as depicted in the table below. The second phase marginally improved the WER, but the SER remained consistent.</p>
 
+          <br>
+          
           <table style="width: 100%; border-collapse: collapse; font-size: 18px; text-align: center; border-radius: 5px; overflow: hidden;">
             <tr style="background-color: #f39e7a; color: white;">
                 <th style="padding: 10px; border-bottom: 1px solid #ddd;">Iteration</th>
@@ -174,10 +209,35 @@
                 <td style="padding: 10px; border-bottom: 1px solid #ddd;">30.2%</td>
                 <td style="padding: 10px; border-bottom: 1px solid #ddd;">2442/8107</td>
             </tr>
-        </table>        
+        </table> 
+        
+        <br>
 
           <h4>4. Android app integration and implementation</h4>
-          <p>The app, adapted for isiXhosa speech recognition, initializes its recognizer upon launch. It continuously listens for the activation keyword "ubuntu". Once this keyword is detected, the app transitions into continuous recognition mode, capturing and processing audio input. After the audio input concludes, the app displays the transcribed version of the audio on the screen.</p>
+          <p>The app, adapted for isiXhosa speech recognition, initializes its recognizer upon launch. It continuously listens for the activation keyword "ubuntu". Once this keyword is detected, the app transitions into continuous recognition mode, capturing and processing audio input. After the audio input concludes, the app displays the transcribed version of the audio on the screen. A demonstration of how the Android app works can be found below.</p>
+          
+          <br>
+          <div class="image-container" style="display: flex; justify-content: center; align-items: start; flex-wrap: wrap;">
+    
+            <div class="image" style="box-sizing: border-box; padding: 0 10px;">
+                <figure style="margin: 0;">
+                    <img src="img/fardoza/phone1.png" alt="Description for Image 1" style="max-width: 100%; height: auto;">
+                </figure>
+            </div>
+        
+            <div class="image" style="box-sizing: border-box; padding: 0 10px;">
+                <figure style="margin: 0;">
+                    <img src="img/fardoza/phone2.png" alt="Description for Image 2" style="max-width: 100%; height: auto;">
+                </figure>
+            </div>
+        
+            <div class="image" style="box-sizing: border-box; padding: 0 10px;">
+                <figure style="margin: 0;">
+                    <img src="img/fardoza/phone3.png" alt="Description for Image 3" style="max-width: 100%; height: auto;">
+                </figure>
+            </div>
+            
+        </div>        
 
           <h4>5. Experimental Design</h4>
           <h5>Data preprocessing</h5>
@@ -209,21 +269,110 @@
               <h2>Results</h2>
             
               <h4>1. Background noise</h4>
-              <p>Background noise significantly affects transcription accuracy in the isiXhosa speech recognition system. High background noise (0 dB) resulted in a consistently poor Word Error Rate (WER) of 1, while a quieter -20 dB improved the WER to 0.94. The system's accuracy, as depicted by both the WER and Levenshtein distance metrics, considerably improves with decreased noise levels. Ambient noise obscures phonemes, making correct identification challenging; reducing noise allows more accurate phoneme recognition and, hence, better transcription.</p>
+              <p>Background noise significantly affects transcription accuracy in the isiXhosa speech recognition system. High background noise (0 dB) resulted in a consistently poor Word Error Rate (WER) of 1, while a quieter -20 dB improved the WER to 0.94. The system's accuracy, as depicted by both the WER and Levenshtein distance metrics, considerably improves with decreased noise levels. Ambient noise obscures phonemes, making correct identification challenging; reducing noise allows more accurate phoneme recognition and, hence, better transcription. The results obtained are illustrated in the graphs below.</p>
+              <div class="image-container" style="display: flex; justify-content: space-between;">  
+                <div class="image">
+                <figure>
+          <img src="img/fardoza/WERBN.png" alt="" class="figure-image">
+          <figcaption><strong> Figure 1: The average WERs for decreasing volumes of background noise. </strong></figcaption>
+                </figure>
+                </div>
 
-              <h4>2. Casual conversations</h4>
-              <p>The isiXhosa speech recognition system struggled with conversational audio characteristics like overlaps and interruptions, yielding a high Word Error Rate (WER) of 1, even after removing background noise. However, normalization improved the accuracy, decreasing the WER to 0.86. The system faced difficulties with code-switching between English and isiXhosa, often missing or misinterpreting words, especially when English was introduced. Additionally, slang, acronyms, and colloquialisms presented challenges due to the system's training primarily on formal isiXhosa datasets.</p>
-
-              <h4>3. Hardware implications on transcription accuracy</h4>
-              <p>Three mobile phones were tested for transcription accuracy. The Xiaomi Redmi 6A was the best performer with a WER of 0.36, while the Samsung Galaxy Pocket had the poorest results with a WER of 0.77. The Samsung Galaxy A72 had intermediate performance with a WER of 0.49. Differences in performance may stem from variations in microphone quality and onboard audio processing technology, emphasizing the importance of considering hardware characteristics in speech recognition on mobile devices.</p>
-
-              <h4>4. Implications of gender on transcription accuracy</h4>
-              <p>The speech recognition system's performance was assessed for both male and female speakers. Female voices had a slightly better WER of 0.98 compared to males at 0.99. Females also had marginally better results in Levenshtein word and character distances. However, male voices showed more consistency in WER but greater variability in Levenshtein distances compared to females.</p>
-
-              <h4>5. Rate of speech</h4>
-              <p>The isiXhosa speech recognition system's acoustic model was trained on slow speech rates, up to 70 WPM. Despite this, the system consistently produced high WERs between 0.95 and 1 for various audio samples, even those with rates below 70 WPM. Factors like missing words in the training vocabulary may affect the system's accuracy.</p>
+                <div class="image">
+                  <figure>
+           <img src="img/fardoza/BNLDGraph.png" alt="" class="figure-image">
+           <figcaption><strong> Figure 2: The average Levenshtein distance at word and character levels for decreasing volumes of background noise.</strong> </figcaption>
+                  </figure>
+                  </div>
 
             </div>
+            <br>
+              <h4>2. Casual conversations</h4>
+              <p>The isiXhosa speech recognition system struggled with conversational audio characteristics like overlaps and interruptions, yielding a high Word Error Rate (WER) of 1, even after removing background noise. However, normalization improved the accuracy, decreasing the WER to 0.86. The system faced difficulties with code-switching between English and isiXhosa, often missing or misinterpreting words, especially when English was introduced. Additionally, slang, acronyms, and colloquialisms presented challenges due to the system's training primarily on formal isiXhosa datasets. The results obtained are illustrated in the graphs below.</p>
+              <div class="image-container" style="display: flex; justify-content: space-between;">  
+                <div class="image">
+                <figure>
+          <img src="img/fardoza/CasualWER.png" alt="" class="figure-image">
+          <figcaption><strong> Figure 3: Results from transcribing conversational audio with background noise, without noise, and normalized for WER.</strong></figcaption>
+                </figure>
+                </div>
+
+                <div class="image">
+                  <figure>
+           <img src="img/fardoza/CasualCombinedLD.png" alt="" class="figure-image">
+           <figcaption><strong> Figure 4: Results from transcribing conversational audio with background noise, without noise, and normalized for the Levenshtein distance at word and character levels.</strong> </figcaption>
+                  </figure>
+                  </div>
+
+            </div>
+            <br>
+              <h4>3. Hardware implications on transcription accuracy</h4>
+              <p>Three mobile phones were tested for transcription accuracy. The Xiaomi Redmi 6A was the best performer with a WER of 0.36 as seen in the table below, while the Samsung Galaxy Pocket had the poorest results with a WER of 0.77. The Samsung Galaxy A72 had intermediate performance with a WER of 0.49. Differences in performance may stem from variations in microphone quality and onboard audio processing technology, emphasizing the importance of considering hardware characteristics in speech recognition on mobile devices.</p>
+
+              <table style="width: 100%; border-collapse: collapse; font-size: 18px; text-align: center; border-radius: 5px; overflow: hidden;">
+                <tr style="background-color: #f39e7a; color: white;">
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Mobile phone type</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Average WER</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Average Levenshtein distance (word level)</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Average Levenstein distance (character level)</th>
+                </tr>
+                <tr style="background-color: #f2f2f2;">
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Samsung Galaxy A72</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">0.49</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">16</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">91</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Samsung Galaxy Pocket</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">0.77</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">25</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">136</td>
+                </tr>
+                <tr style="background-color: #f2f2f2;">
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Xiaomi Redmi 6A</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">0.36</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">12</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">39</td>
+                </tr>
+            </table>            
+            <br>
+              <h4>4. Implications of gender on transcription accuracy</h4>
+              <p>The speech recognition system's performance was assessed for both male and female speakers. Female voices had a slightly better WER of 0.98 compared to males at 0.99 as depicted in the table below. Females also had marginally better results in Levenshtein word and character distances. However, male voices showed more consistency in WER but greater variability in Levenshtein distances compared to females.</p>
+
+              <table style="width: 100%; border-collapse: collapse; font-size: 18px; text-align: center; border-radius: 5px; overflow: hidden;">
+                <tr style="background-color: #f39e7a; color: white;">
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Gender</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Average WER</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Average Levenshtein distance (word level)</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Average Levenstein distance (character level)</th>
+                </tr>
+                <tr style="background-color: #f2f2f2;">
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Female</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">0.98</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">45</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">274</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Male</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">0.99</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">41</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">281</td>
+                </tr>
+            </table>            
+            <br>
+              <h4>5. Rate of speech</h4>
+              <p>The isiXhosa speech recognition system's acoustic model was trained on slow speech rates, up to 70 WPM. Despite this, the system consistently produced high WERs between 0.95 and 1 for various audio samples, even those with rates below 70 WPM. Factors like missing words in the training vocabulary may affect the system's accuracy. The results obtained are illustrated in the graph below.</p>
+              
+              <div class="image-container2" style="display: flex; justify-content: center;">
+                <div class="image">
+                  <figure>
+                    <img src="img/fardoza/newSpeed.png" alt="" width="100%" height="auto" style="border: 2px solid black;">
+                    <figcaption ><strong> Figure 5: Results for the performance of the speech 
+                      recognition system for various rates of speech.</strong></figcaption>
+                  </figure>
+                </div>
+              </div>
+
           </div>
 
         </div>
