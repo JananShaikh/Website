@@ -483,6 +483,12 @@ section {
 #results .image-container2{
   padding-inline: 25%;
 }
+
+#results p {
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
 /* Style for the #conclusions section */
 #conclusions {
   padding-inline: 220px; 
