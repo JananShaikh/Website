@@ -156,40 +156,43 @@
     
      <!-- =======  Results Section ======= -->
     <section id="results" class="results">
-      <div class="container">
+          <div class="container">
       
     
             <div class="results-description">
-              <h2>Results</h2>
-              <p>
-                The results indicate that Pocketsphinx outperforms Sphinx4 on familiar data, but both perform equally on unfamiliar data. This might be due to the lack of maintenance for Sphinx4 by CMUSphinx. Overall, CMUSphinx performed poorly in transcribing isiXhosa SABC broadcast news, possibly due to small training datasets, short audio segments, and differences in speaker speed between training and test data. Not handling out-of-vocabulary (OOV) words could also affect the system's performance. Male speech segments performed better than female segments, likely due to pitch differences. Interestingly, field news speech sections performed better than main news anchor sections, possibly due to slower and clearer speech. Improving isiXhosa SABC news transcription would require a substantial amount of related training data, and exploring other toolkits and deep neural networks may be beneficial.
-              </p>
-              <div class="image-container" style="display: flex; justify-content: space-between;">  
-                <div class="image">
-                <figure>
-         <img src="img/kristen/Female&Male_word.png" alt="" class="figure-image">
-         <figcaption><strong> Figure 1: Levenshtein word distance for male and female speakers</strong></figcaption>
-                </figure>
-                </div>
-
-                <div class="image">
-                  <figure>
-           <img src="img/kristen/Types_word.png" alt="" class="figure-image">
-           <figcaption><strong> Figure 2: Levenshtein word distance for different types of speech</strong> </figcaption>
-                  </figure>
+                <h2>Results</h2>
+                <p>
+                  The results indicate that Pocketsphinx outperforms Sphinx4 on familiar data, but both perform equally on unfamiliar data. This might be due to the lack of maintenance for Sphinx4 by CMUSphinx. Overall, CMUSphinx performed poorly in transcribing isiXhosa SABC broadcast news, possibly due to small training datasets, short audio segments, and differences in speaker speed between training and test data. Not handling out-of-vocabulary (OOV) words could also affect the system's performance. Male speech segments performed better than female segments, likely due to pitch differences. Interestingly, field news speech sections performed better than main news anchor sections, possibly due to slower and clearer speech. Improving isiXhosa SABC news transcription would require a substantial amount of related training data, and exploring other toolkits and deep neural networks may be beneficial.
+                </p>
+                
+                <div class="image-container" style="display: flex; justify-content: space-between;">  
+                  <div class="image">
+                    <figure>
+                      <img src="img/kristen/Female&Male_word.png" alt="" class="figure-image">
+                      <figcaption><strong> Figure 1: Levenshtein word distance for male and female speakers</strong></figcaption>
+                    </figure>
                   </div>
 
-            </div>
-            <div class="image-container" style="display: flex; justify-content: space-between;">
-            <div class="image">
-              <figure>
-       <img src="img/kristen/PSvsS4.png" alt="" width="70%" height="auto" style="border: 2px solid black;">
-       <figcaption ><strong> Figure 3: Word Error Rate for Sphinx4 and Pocketsphinx</strong></figcaption>
-              </figure>
-              </div>
-            </div>
+                  <div class="image">
+                    <figure>
+                      <img src="img/kristen/Types_word.png" alt="" class="figure-image">
+                      <figcaption><strong> Figure 2: Levenshtein word distance for different types of speech</strong> </figcaption>
+                    </figure>
+                  </div>
+                </div>
 
-      </div>
+              <div class="image-container2" style="display: flex; justify-content: center;">
+                <div class="image">
+                  <figure>
+                    <img src="img/kristen/PSvsS4.png" alt="" width="100%" height="auto" style="border: 2px solid black;">
+                    <figcaption ><strong> Figure 3: Word Error Rate for Sphinx4 and Pocketsphinx</strong></figcaption>
+                  </figure>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
     </section><!-- End Results Section -->
 
     <section id="conclusions" class="conclusions">

@@ -450,6 +450,7 @@ section {
   display: flex;
   flex-direction: row; 
   align-items: center;
+  justify-content: center;
   gap: 20px; /* Adjust the gap as needed */
 }
 #results figcaption {
@@ -464,6 +465,9 @@ section {
   display: block; /* Ensure images don't have any extra spacing issues */
 }
 
+#results .image-container2{
+  padding-inline: 25%;
+}
 /* Style for the #conclusions section */
 #conclusions {
   padding-inline: 220px; 
