@@ -117,9 +117,26 @@
     
             <div class="methodology-description">
               <h2>Methods</h2>
+              <p>The process involves building a language model and an acoustic model, audio segmentation, and evaluating the accuracy of two different speech recognition tools: Pocketsphinx and Sphinx4.</p>
+              <h4>1. Building a Language Model</h4>
               <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                Datasets were obtained from the South African Centre for Digital Language Resources (SADiLaR). Building the language model was the first step, accomplished using the CMU Language Model Toolkit (CMULMTK) and data preparation. Language model training involved generating vocabulary and 'idngram' files, as well as converting the language model into 'arpa' and binary formats for compatibility with Sphinxtrain and CMUSphinx (Pocketsphinx and Sphinx4).
               </p>
+              <h4>2. Building an Acoustic Model</h4>
+              <p>To train the model, a specific file system structure was required, containing all the necessary files: language model, and phonetic and filler dictionaries.
+              Data preparation for the acoustic model included creating the necessary file structure and organising the necessary data within this structure.
+              Data pre-processing involved converting the raw text-to-speech datasets into a format expected by Sphinxtrain.
+              The phonetic dictionary was initially incomplete, so a grapheme-to-phoneme (G2P) model was trained to complete it. 
+              Training on sphinxtrain, ran for a few hours, achieving a Word Error Rate (WER) of 30.9% and a Sentence Error Rate (SER) of 34.9% when tested with data from the NCHLT corpus.
+              </p>
+              <h4>3. Audio Segmentation and File Processing:</h4>
+              <p>Audio segmentation was carried out using Python scripts and libraries like numpy and soundfile. The segmentation was based on the energy level of the speech, aiming to split the audio at points of low energy. However, manual segmentation was still required in cases where clear pauses were not detected. This manual intervention involved dividing longer segments and joining shorter ones that split mid-word to ensure a smoother flow. Once segmentation was completed, the source transcription files from the SABC news corpus were cleaned by converting all text to lowercase and removing punctuation. The cleaned text was organized with each audio segment's speech on a new line, facilitating a line-by-line comparison with hypothesis transcriptions to calculate transcription accuracy metrics.</p>
+              <h4>4. System Development and Implementation</h4>
+              <p>
+                The system development and implementation involved the use of two speech recognition libraries, Pocketsphinx and Sphinx4. These were used for developing audio transcription systems, with Pocketsphinx implemented in Python and Sphinx4 in Java. The systems aimed to transcribe segmented audio files accurately.
+              </p>
+              <h4>5. Evaluation Metrics</h4>
+              <p></p>
             </div>
           </div>
 
